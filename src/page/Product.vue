@@ -2,10 +2,10 @@
     <div>
         this is Product
 
-        <!-- <VueFlashcard  
+        <VueFlashcard  
             front="hello this is a flashcard" 
             back="with animation">
-        </VueFlashcard > -->
+        </VueFlashcard >
 
         <VueperSlides>
             <VueperSlide v-for="(slide, index) in slideArray" :key="index" :title="slide.title" :content="slide.content" />
