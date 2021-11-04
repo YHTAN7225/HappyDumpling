@@ -1,0 +1,58 @@
+WEB PAGE FEATURE
+_______________________________________________________________________________________________________
+Save add to cart item in account
+
+_______________________________________________________________________________________________________
+add social media login/register (google, facebook, maybe instagram...)
+
+_______________________________________________________________________________________________________
+static pages for info
+
+_______________________________________________________________________________________________________
+search features to search products (maybe search page too?)
+
+_______________________________________________________________________________________________________
+Add chat bot 
+=> link to fb page
+=> whatsapp API 
+
+
+ADMIN OFFICE FEATURE
+_______________________________________________________________________________________________________
+track user activity for generating analysis report, such as:
+=> sales
+=> revenue
+=> visitor
+=> pageview
+=> browse time maybe?
+=> visitor by channel, (either facebook, instagram or directly at webpage)
+=> average amount per order
+=> repeating/new customer percentage
+=> top customer and products
+=> sales report for individual products and user
+
+_______________________________________________________________________________________________________
+track order, data including amount, location, payment status...
+
+_______________________________________________________________________________________________________
+edit products details
+=> image
+=> description
+=> stock in warehouse
+=> available period (for limited time/number products)
+=> product's category (dumplings/drinks/meals)
+
+_______________________________________________________________________________________________________
+Edit and make promotion, such as combo deal or festive products
+
+_______________________________________________________________________________________________________
+
+
+DEVELOPMENT NOTES
+_______________________________________________________________________________________________________
+try adding firebase
+_______________________________________________________________________________________________________
+research on hosting
+_______________________________________________________________________________________________________
+research on payment gateway
+_______________________________________________________________________________________________________
