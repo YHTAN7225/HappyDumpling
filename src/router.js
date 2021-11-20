@@ -10,6 +10,17 @@ Vue.use(Router)
 //     }
 // }
 
+//avoid redirect to current page (not working)
+function blockSelfRedirect(to, from, next){
+    // console.log(to.name);
+    // console.log(from.name);
+    // console.log(next);
+    if(from.name != to.name){
+        next();
+    }
+}
+
+
 export default new Router({
     mode : "history",
     routes: [
@@ -17,28 +28,25 @@ export default new Router({
             path: "/login",
             name: "login",
             component : () => import("./page/Login"),
-            // beforeEnter : (to, from, next) =>{
-            //     if(login == true){
-            //         next("home");
-            //     }else{
-            //         next();
-            //     }
-            // }
+            // beforeEnter : blockSelfRedirect
         },
         {
             path: "/",
             name: "home",
-            component : () => import("./page/Home")
+            component : () => import("./page/Home"),
+            // beforeEnter : blockSelfRedirect
         },
         {
             path: "/product",
             name: "product",
-            component : () => import("./page/Product")
+            component : () => import("./page/Product"),
+            // beforeEnter : blockSelfRedirect
         },
         {
             path: "/about-us",
             name: "about-us",
-            component : () => import("./page/AboutUs")
+            component : () => import("./page/AboutUs"),
+            // beforeEnter : blockSelfRedirect
         },
     ]
 })

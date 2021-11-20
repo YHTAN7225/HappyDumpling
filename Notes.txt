@@ -51,9 +51,12 @@ give out vouchers to customers
 _______________________________________________________________________________________________________
 
 
-DEVELOPMENT NOTES
+DEVELOPER NOTES
 _______________________________________________________________________________________________________
-try adding firebase
+try adding firebase 
+- use firebase authentication to replce social media login
+- use firestore as database
+- try researching on cloud function to run server side logic (mainly cleaning old data in databse eg expired promotion)
 _______________________________________________________________________________________________________
 research on hosting
 _______________________________________________________________________________________________________
