@@ -25,11 +25,11 @@ Vue.mixin(firebase);
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import "../src/assets/css/transition.css";
-// import { BootstrapVue, IconsPlugin } from "bootstrap-vue"
+import { BootstrapVue, IconsPlugin } from "bootstrap-vue"
 // const BootstrapVue  = () => import(/* webpackChunkName: "BootstrapVue" */ "bootstrap-vue");
 // const IconsPlugin  = () => import(/* webpackChunkName: "IconsPlugin" */ "bootstrap-vue");
-// Vue.use(BootstrapVue);
-// Vue.use(IconsPlugin);
+Vue.use(BootstrapVue);
+Vue.use(IconsPlugin);
 
 //components
 //flipping flash card, flip on click

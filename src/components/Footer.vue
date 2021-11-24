@@ -28,7 +28,7 @@
             <div class="footer-copyright text-center py-3">© 2020 Copyright:
                 <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
             </div>
-            <div @click="getTest()">getTest</div>
+            <div @click="getDocument('test')">getTest</div>
         </div>
     </div>
 </template>

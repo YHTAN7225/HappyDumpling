@@ -1,13 +1,13 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand">{{ NavBarTitle }}</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" @click="toggleNavBar=!toggleNavBar">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <div :class="toggleNavBar ? 'collapse navbar-collapse' : 'navbar-collapse'" id="navbarNav">
             <ul class="navbar-nav">
             <li class="nav-item" v-for="item in NavBarComponent" :key="item.name">
-                <a class="nav-link" @click="redirect(item.routerName)">{{ item.name }}</a>
+                <a class="nav-link" href="#" @click="redirect(item.routerName)">{{ item.name }}</a>
             </li>
         
             </ul>
@@ -20,7 +20,7 @@
         name: 'HelloWorld',
         data(){
             return {
-
+                toggleNavBar : true,
             }
         },
         props: {
