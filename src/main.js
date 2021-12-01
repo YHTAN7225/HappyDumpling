@@ -20,6 +20,10 @@ Vue.config.silent = true
 import {firebase} from "../public/js/Firebase.js";
 Vue.mixin(firebase);
 
+//Vuex global variable
+import global from "../public/js/Store"
+Vue.prototype.$global = global;
+
 //CSS 
 // const Bootstrap = () => import(/* webpackChunkName: "Bootstrap" */ "bootstrap");
 import "bootstrap/dist/css/bootstrap.css";
@@ -41,6 +45,7 @@ import { VueperSlides, VueperSlide } from 'vueperslides';
 import "vueperslides/dist/vueperslides.css";
 Vue.component("VueperSlides", VueperSlides);
 Vue.component("VueperSlide", VueperSlide);
+
 
 new Vue({
   router,

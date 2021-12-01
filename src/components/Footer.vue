@@ -30,12 +30,20 @@
             </div>
             <div @click="createNewUser()">createNewUser</div>
             <div @click="getDocument('test')">getDocument</div>
-        </div>
+            <div @click="testMethod()">testMethod</div>
+        </div>``
     </div>
 </template>
 
 <script>
     export default {
-        
+        methods: {
+            testMethod: function(){
+                this.$global.commit("setTest", "test");
+                console.log("before", this.$global.state.store.test);
+                this.$global.commit("setTest", "test2");
+                console.log("after", this.$global.state.store.test);
+            }
+        }
     }
 </script>

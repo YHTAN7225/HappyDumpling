@@ -18,7 +18,9 @@
     "vue": "^2.6.14",
     "vue-flashcard": "^1.1.6",
     "vue-router": "^3.5.2",
-    "vueperslides": "^2.15.2"
+    "vueperslides": "^2.15.2",
+    "vuex": "^3.6.2",
+    "vuex-persistedstate": "^4.1.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
