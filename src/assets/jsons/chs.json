@@ -1,0 +1,6 @@
+{
+    "general" : {
+        "test" : "chs-test",
+        "test2" : "chs test2 {var1} chs test2 {var2}  chs test2 {var3}"
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "general" : {
+        "test" : "eng-test",
+        "test2" : "eng test2 {var1} eng test2 {var2}  eng test2 {var3}"
+    }
+}

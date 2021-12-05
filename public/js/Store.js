@@ -5,15 +5,15 @@ import createPersistedState from "vuex-persistedstate";
 Vue.use(Vuex);
 
 const test = {
-    state: {
-        test:  "test",
+    state : {
+        test :  "test",
     }, 
-    mutations: {
+    mutations : {
         setTest(state, data){
             state.test = data;
         },
     },
-    actions: {
+    actions : {
         setTest({commit}, data) {
             commit("setTest", data);
         },
@@ -21,35 +21,51 @@ const test = {
 };
 
 const user = {
-    state: {
-        userToken: "",
+    state : {
+        userToken : "",
     }, 
-    mutations: {
+    mutations : {
         setTest(state, data){
             state.userToken = data;
         },
     },
-    actions: {
+    actions : {
         setUserToken({commit}, data) {
             commit("setUserToken", data);
         },
     }
 };
-const path = {
-    state: {
-        imagesPath : "src/assets/images/",
-        iconsPath : "@/assets/icons/",
-        cssPath : "@/assets/css/",
+
+const setting = {
+    state : {
+        showLoading : false,
+        language : "eng",
+    }, 
+    mutations : {
+        setShowLoading(state, data){
+            state.showLoading = data;
+        },
+        setLanguage(state, data){
+            state.language = data;
+        },
+    },
+    actions : {
+        setShowLoading({commit}, data) {
+            commit("setShowLoading", data);
+        },
+        setLanguage({commit}, data) {
+            commit("setLanguage", data);
+        },
     }
-}
+};
 
 const global = new Vuex.Store({
-    modules: {
-        test: test,
-        user: user, 
-        path: path
+    modules : {
+        test : test,
+        user : user, 
+        setting: setting,
     },
-    plugins: [createPersistedState()],
+    plugins : [createPersistedState()],
 });
 
 export default global

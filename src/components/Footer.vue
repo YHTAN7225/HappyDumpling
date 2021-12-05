@@ -28,16 +28,36 @@
             <div @click="createNewUser()">createNewUser</div>
             <div @click="getDocument('test')">getDocument</div>
             <div @click="testMethod()">testMethod</div>
+            <div @click="testMethod()">testMethod</div>
+            <div @click="testMethod()">testMethod</div>
+            <div @click="testMethod()">testMethod</div>
+            <div @click="testMethod()">testMethod</div>
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        methods: {
-            testMethod: function(){
-                console.log(this.$router.app);
-                console.log(this.$router.app._route.name);
+        methods : {
+            testMethod : function(){
+                // console.log(this.$global);
+
+                this.setLanguage("eng");  
+                console.log(this.$global.state.setting.language);
+                console.log(this.$translate("general.test2", {
+                    var1 : "11111", 
+                    var2 : "22222",
+                    var3 : "33333"})
+                );
+
+
+                this.setLanguage("chs");    
+                console.log(this.$global.state.setting.language);
+                console.log(this.$translate("general.test2", {
+                    var1 : "11111", 
+                    var2 : "22222",
+                    var3 : "33333"})
+                );
             },
         }
     }

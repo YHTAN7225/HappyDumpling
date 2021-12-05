@@ -1,8 +1,9 @@
 <template>
   <div id="app">
+    <Loading></Loading>
     <Header :NavBarComponent="NavBarComponent" :NavBarTitle="NavBarTitle"></Header>
     <transition name="fade" mode="out-in">
-      <router-view  class="routerView"/>
+      <router-view class="routerView"/>
     </transition>
     <Footer></Footer>
   </div>
@@ -11,9 +12,10 @@
 <script>
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
+import Loading from "./components/Loading.vue";
 
 export default {
-  name: "App",
+  name : "App",
   data() {
     return {
       NavBarComponent : [
@@ -33,9 +35,12 @@ export default {
       NavBarTitle : "Happy Dumpling",
     };
   },
-  components: {
+  components : {
     Header,
-    Footer
+    Footer, 
+    Loading
+  },
+  method:{
   },
   mounted(){
     

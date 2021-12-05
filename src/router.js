@@ -24,34 +24,34 @@ Vue.use(Router)
 
 export default new Router({
     mode : "history",
-    routes: [
+    routes : [
         {
-            path: "/login",
-            name: "login",
+            path : "/login",
+            name : "login",
             component : () => import("./page/Login"), 
             // beforeEnter : blockSelfRedirect
         },
         {
-            path: "/",
-            name: "home",
+            path : "/",
+            name : "home",
             component : () => import("./page/Home"),
             // beforeEnter : blockSelfRedirect
         },
         {
-            path: "/product",
-            name: "product",
+            path : "/product",
+            name : "product",
             component : () => import("./page/Product"),
             // beforeEnter : blockSelfRedirect
         },
         {
-            path: "/about-us",
-            name: "about-us",
+            path : "/about-us",
+            name : "about-us",
             component : () => import("./page/AboutUs"),
             // beforeEnter : blockSelfRedirect
         },
         {
-            path: "*",
-            redirect: {name: "home"}
+            path : "*",
+            redirect : {name : "home"}
         }
     ]
 })
