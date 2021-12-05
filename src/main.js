@@ -4,7 +4,7 @@ import router from "./router";
 
 //VUE CONFIGS
 //Suppress all Vue logs and warnings.
-Vue.config.silent = true 
+// Vue.config.silent = true 
 
 // Assign a handler for uncaught errors during component render function and watchers. The handler gets called with the error and the Vue instance.
 // Vue.config.errorHandler = function (err, vm, info) {
@@ -29,6 +29,8 @@ Vue.prototype.$global = global;
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import "../src/assets/css/transition.css";
+import "../src/assets/css/general.css";
+import "../src/assets/css/test.css";
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue"
 // const BootstrapVue  = () => import(/* webpackChunkName: "BootstrapVue" */ "bootstrap-vue");
 // const IconsPlugin  = () => import(/* webpackChunkName: "IconsPlugin" */ "bootstrap-vue");

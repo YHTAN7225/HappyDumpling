@@ -1,5 +1,16 @@
 import Vue from "vue"
 import Router from "vue-router"
+
+//overwriting origical push method which ignore self-redirect (redundant navigation) error
+const originalPush = Router.prototype.push;
+Router.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err =>{
+      if(err.name != "NavigationDuplicated"){
+        throw err;
+      }
+  })
+};
+
 Vue.use(Router)
 
 // function requireLogin(to, from, next){
@@ -10,16 +21,6 @@ Vue.use(Router)
 //     }
 // }
 
-//avoid redirect to current page (not working)
-function blockSelfRedirect(to, from, next){
-    // console.log(to.name);
-    // console.log(from.name);
-    // console.log(next);
-    if(from.name != to.name){
-        next();
-    }
-}
-
 
 export default new Router({
     mode : "history",
@@ -27,7 +28,7 @@ export default new Router({
         {
             path: "/login",
             name: "login",
-            component : () => import("./page/Login"),
+            component : () => import("./page/Login"), 
             // beforeEnter : blockSelfRedirect
         },
         {
@@ -48,5 +49,9 @@ export default new Router({
             component : () => import("./page/AboutUs"),
             // beforeEnter : blockSelfRedirect
         },
+        {
+            path: "*",
+            redirect: {name: "home"}
+        }
     ]
 })

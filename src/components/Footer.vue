@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="page-footer font-small blue pt-4 sticky-bottom">
+        <div class="page-footer font-small blue pt-4 stick-bottom">
             <div class="container-fluid text-center text-md-left">
                 <div class="row">
                 <div class="col-md-6 mt-md-0 mt-3">
@@ -25,13 +25,10 @@
                 </div>
                 </div>
             </div>
-            <div class="footer-copyright text-center py-3">© 2020 Copyright:
-                <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
-            </div>
             <div @click="createNewUser()">createNewUser</div>
             <div @click="getDocument('test')">getDocument</div>
             <div @click="testMethod()">testMethod</div>
-        </div>``
+        </div>
     </div>
 </template>
 
@@ -39,11 +36,9 @@
     export default {
         methods: {
             testMethod: function(){
-                this.$global.commit("setTest", "test");
-                console.log("before", this.$global.state.store.test);
-                this.$global.commit("setTest", "test2");
-                console.log("after", this.$global.state.store.test);
-            }
+                console.log(this.$router.app);
+                console.log(this.$router.app._route.name);
+            },
         }
     }
 </script>

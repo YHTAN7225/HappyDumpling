@@ -2,14 +2,13 @@
   <div id="app">
     <Header :NavBarComponent="NavBarComponent" :NavBarTitle="NavBarTitle"></Header>
     <transition name="fade" mode="out-in">
-      <router-view />
+      <router-view  class="routerView"/>
     </transition>
     <Footer></Footer>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
 
@@ -35,7 +34,6 @@ export default {
     };
   },
   components: {
-    HelloWorld,
     Header,
     Footer
   },

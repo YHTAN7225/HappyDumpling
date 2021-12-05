@@ -7,7 +7,7 @@
         <div :class="toggleNavBar ? 'collapse navbar-collapse' : 'navbar-collapse'" id="navbarNav">
             <ul class="navbar-nav">
             <li class="nav-item" v-for="item in NavBarComponent" :key="item.name">
-                <a class="nav-link" href="#" @click="redirect(item.routerName)">{{ item.name }}</a>
+                <a class="nav-link" @click="$router.push({name: item.routerName})">{{ item.name }}</a>
             </li>
         
             </ul>
@@ -17,7 +17,7 @@
 
 <script>
     export default {
-        name: 'HelloWorld',
+        name: 'Header',
         data(){
             return {
                 toggleNavBar : true,
