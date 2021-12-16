@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="app bg-image">
     <Loading></Loading>
     <Header :NavBarComponent="NavBarComponent" :NavBarTitle="NavBarTitle"></Header>
     <transition name="fade" mode="out-in">

@@ -2,3 +2,9 @@
     height: auto;
     min-height: 60%;
 }
+
+.app{
+    background-image: url("../images/background.jpg");
+    height: 100vh;
+    
+}

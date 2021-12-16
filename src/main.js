@@ -18,13 +18,15 @@ import router from "./router";
 //importing local library
 //firebase
 import {firebase} from "../public/js/Firebase.js";
-import {shared} from "../public/js/shared.js";
+import {shared} from "../public/js/Shared.js";
 Vue.mixin(firebase);
 Vue.mixin(shared);
 
 //Vuex global variable
 import global from "../public/js/Store"
 Vue.prototype.$global = global;
+import {constant} from "../public/js/Enum.js"
+Vue.prototype.$constant = constant;
 
 //VueI18n for multi-language
 import VueI18n from "vue-i18n";

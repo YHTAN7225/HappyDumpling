@@ -50,6 +50,12 @@ export default new Router({
             // beforeEnter : blockSelfRedirect
         },
         {
+            path : "/register",
+            name : "register",
+            component : () => import("./page/Register"),
+            // beforeEnter : blockSelfRedirect
+        },
+        {
             path : "*",
             redirect : {name : "home"}
         }

@@ -14,6 +14,7 @@ const firebaseConfig = {
 };
 const firestoreApp = initializeApp(firebaseConfig);
 const firestoreDatabase = getFirestore(firestoreApp);
+const auth = getAuth();
 
 export const firebase = {
     data(){
@@ -26,16 +27,16 @@ export const firebase = {
         getDocument : async function(collectionName) {
             const document = await getDocs(this.getCollection(collectionName));
             if(document.docs != undefined){
-                return document.docs.map(x => {return{
+                var result = document.docs.map(x => {return{
                     key : x.id,
                     data : x.data()
-                }});
-            }else {return undefined}
+                }}); 
+                return result;
+            }else {return undefined;}
         },
         createNewUser : async function(){ 
             const email = "test2@test.com";
             const password = "qwe123";
-            const auth = getAuth();
             
             createUserWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
@@ -50,8 +51,19 @@ export const firebase = {
                 console.log("error", error);
                 // ..
             });
-
-        
+        },
+        login : function(email, password){
+            signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                console.log(user);
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+            });
         }
     }
 }
