@@ -1,9 +1,9 @@
 <template>
 <SfFooter
-    :column="3"
+    :column="showLogo ? (FooterContent.length+1) : FooterContent.length"
     :multiple="false"
   >
-    <SfFooterColumn>
+    <SfFooterColumn v-if="showLogo">
         <SfImage
             :src="require('@/assets/images/HappyDumplingLogoShort.png')"
             :srcsets="[]"
@@ -12,7 +12,7 @@
             :height="300"
         />
     </SfFooterColumn>
-    <SfFooterColumn class="not-image" v-for="(column, columnIndex) in FooterContent" :key="columnIndex" :title="column.FooterColumnTitle">
+    <SfFooterColumn :class="showLogo ? 'not-image' : ''" v-for="(column, columnIndex) in FooterContent" :key="columnIndex" :title="column.FooterColumnTitle">
         <SfList>
             <SfListItem v-for="(item, listIndex) in column.ListItem" :key="columnIndex + '-' + listIndex">
                 <SfMenuItem :label="item.lable" icon="heart" @click="$router.push({name : item.routerName})"/>
@@ -37,16 +37,20 @@ import { SfImage } from "@storefront-ui/vue";
                       FooterColumnTitle : "About Us",
                       ListItem : [
                           {
-                              lable : "Who we are",
-                              routerName : "",
+                              lable : "Contact Us",
+                              routerName : "contact-us",
                           },
                           {
-                              lable : "Quality in the details",
-                              routerName : "",
+                              lable : "Delivery Info",
+                              routerName : "delivery-info",
                           },
                           {
-                              lable : "Customer Reviews",
-                              routerName : "",
+                              lable : "Our Story",
+                              routerName : "our-story",
+                          },
+                          {
+                              lable : "Terms & Conditions",
+                              routerName : "terms-and-conditions",
                           },
                       ],  
                     },
@@ -67,7 +71,8 @@ import { SfImage } from "@storefront-ui/vue";
                             },
                         ],
                     },
-                ]
+                ],
+                showLogo : false,
             }
         },
         methods : {

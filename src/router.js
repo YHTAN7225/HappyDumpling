@@ -44,15 +44,33 @@ export default new Router({
             // beforeEnter : blockSelfRedirect
         },
         {
-            path : "/about-us",
-            name : "about-us",
-            component : () => import("./page/AboutUs"),
+            path : "/contact-us",
+            name : "contact-us",
+            component : () => import("./page/ContactUs"),
             // beforeEnter : blockSelfRedirect
         },
         {
             path : "/register",
             name : "register",
             component : () => import("./page/Register"),
+            // beforeEnter : blockSelfRedirect
+        },
+        {
+            path : "/delivery-info",
+            name : "delivery-info",
+            component : () => import("./page/DeliveryInfo"),
+            // beforeEnter : blockSelfRedirect
+        },
+        {
+            path : "/our-story",
+            name : "our-story",
+            component : () => import("./page/OurStory"),
+            // beforeEnter : blockSelfRedirect
+        },
+        {
+            path : "/terms-and-conditions",
+            name : "terms-and-conditions",
+            component : () => import("./page/TermsAndConditions"),
             // beforeEnter : blockSelfRedirect
         },
         {
