@@ -1,44 +1,87 @@
 <template>
-    <div>
-        <div class="page-footer font-small blue stick-bottom">
-            <div class="container-fluid text-center text-md-left">
-                <div class="row">
-                <div class="col-md-6 mt-md-0 mt-3">
-                    <h5 class="text-uppercase">Footer Content</h5>
-                    <div @click="createNewUser()">createNewUser</div>
-                    <div @click="getDocument('test')">getDocument</div> 
-                    <div @click="testMethod()">testMethod</div>
-                </div>
-                <hr class="clearfix w-100 d-md-none pb-3">
-                <div class="col-md-3 mb-md-0 mb-3">
-                    <h5 class="text-uppercase">Links</h5>
+<SfFooter
+    :column="3"
+    :multiple="false"
+  >
+    <SfFooterColumn>
+        <SfImage
+            :src="require('@/assets/images/HappyDumplingLogoShort.png')"
+            :srcsets="[]"
+            alt="Happy_Dumpling_Logo"
+            :width="300"
+            :height="300"
+        />
+    </SfFooterColumn>
+    <SfFooterColumn class="not-image" v-for="(column, columnIndex) in FooterContent" :key="columnIndex" :title="column.FooterColumnTitle">
+        <SfList>
+            <SfListItem v-for="(item, listIndex) in column.ListItem" :key="columnIndex + '-' + listIndex">
+                <SfMenuItem :label="item.lable" icon="heart" @click="$router.push({name : item.routerName})"/>
+            </SfListItem>
+        </SfList>
+    </SfFooterColumn>
 
-                    <ul class="list-unstyled">
-                    <li>
-                        <a @click="$router.push({name : 'home'})">Home</a>
-                    </li>
-                    <li>
-                        <a @click="$router.push({name : 'product'})">Product</a>
-                    </li>
-                    <li>
-                        <a @click="$router.push({name : 'login'})">Login</a>
-                    </li>
-                    </ul>
-                </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
+  </SfFooter>
 </template>
 
 <script>
+import { SfFooter } from "@storefront-ui/vue";
+import { SfList } from "@storefront-ui/vue";
+import { SfMenuItem } from "@storefront-ui/vue";
+import { SfArrow } from "@storefront-ui/vue";
+import { SfImage } from "@storefront-ui/vue";
     export default {
+        data() {
+            return {
+                FooterContent : [
+                    {
+                      FooterColumnTitle : "About Us",
+                      ListItem : [
+                          {
+                              lable : "Who we are",
+                              routerName : "",
+                          },
+                          {
+                              lable : "Quality in the details",
+                              routerName : "",
+                          },
+                          {
+                              lable : "Customer Reviews",
+                              routerName : "",
+                          },
+                      ],  
+                    },
+                    {
+                        FooterColumnTitle : "Quick Link",
+                        ListItem : [
+                            {
+                                lable : "Home",
+                                routerName : "home",
+                            },
+                            {
+                                lable : "Product",
+                                routerName : "product",
+                            },
+                            {
+                                lable : "Login",
+                                routerName : "login",
+                            },
+                        ],
+                    },
+                ]
+            }
+        },
         methods : {
             testMethod : function(){
                 // console.log(this.$global);
                 console.log(this.$enums);
             },
+        },
+        components : {
+            SfFooter,
+            SfList,
+            SfMenuItem,
+            SfArrow,
+            SfImage,
         }
     }
 </script>

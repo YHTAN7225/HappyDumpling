@@ -64,12 +64,11 @@
         },
         methods : {
             goToRegister : function(){
-                console.log(this.$router);
                 this.$router.push({name : "register"});
             }
         },
         mounted(){
-
+            window.scrollTo(0, 0);
         }
     }
     

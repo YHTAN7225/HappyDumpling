@@ -8,3 +8,12 @@
     height: 100vh;
     
 }
+
+/* footer */
+.sf-footer{
+    padding: 0% 10% 0% 10% !important;
+}
+
+.sf-footer .sf-footer-column.not-image{
+    padding-top: 20%;
+}

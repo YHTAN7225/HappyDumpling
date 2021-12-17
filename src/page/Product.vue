@@ -1,16 +1,49 @@
 <template>
     <div>
-        this is Product
-
-        <VueFlashcard  
-            front="hello this is a flashcard" 
-            back="with animation">
-        </VueFlashcard >
-
         <VueperSlides>
             <VueperSlide v-for="(slide, index) in slideArray" :key="index" :title="slide.title" :content="slide.content" />
         </VueperSlides>
 
+    
+        <!-- <VueFlashcard  
+            front="hello this is a flashcard" 
+            back="with animation">
+        </VueFlashcard > -->
+
+        <div class="d-flex align-items-center justify-content-around m-3">
+            <div class="card col-3" style="width: 18rem;">
+                <div class="card-body">
+                    <VueFlashcard  
+                        front="hello this is a flashcard" 
+                        back="with animation">
+                    </VueFlashcard >
+                </div>
+            </div>
+            <div class="card col-3" style="width: 18rem;">
+                <div class="card-body">
+                    <VueFlashcard  
+                        front="hello this is a flashcard" 
+                        back="with animation">
+                    </VueFlashcard >
+                </div>
+            </div>
+            <div class="card col-3" style="width: 18rem;">
+                <div class="card-body">
+                    <VueFlashcard  
+                        front="hello this is a flashcard" 
+                        back="with animation">
+                    </VueFlashcard >
+                </div>
+            </div>
+            <div class="card col-3" style="width: 18rem;">
+                <div class="card-body">
+                    <VueFlashcard  
+                        front="hello this is a flashcard" 
+                        back="with animation">
+                    </VueFlashcard >
+                </div>
+            </div>
+        </div>
 
     </div>
 </template>
@@ -51,7 +84,7 @@
 
         },
         mounted(){
-            
+            window.scrollTo(0, 0);
         }
     }
     

@@ -63,6 +63,7 @@ import "bootstrap-vue/dist/bootstrap-vue.css";
 import "../src/assets/css/transition.css";
 import "../src/assets/css/general.css";
 import "../src/assets/css/test.css";
+import "@storefront-ui/vue/styles.scss";
 import { BootstrapVue, IconsPlugin } from "bootstrap-vue"
 // const BootstrapVue  = () => import(/* webpackChunkName : "BootstrapVue" */ "bootstrap-vue");
 // const IconsPlugin  = () => import(/* webpackChunkName : "IconsPlugin" */ "bootstrap-vue");
