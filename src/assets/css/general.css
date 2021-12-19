@@ -17,3 +17,19 @@
 .sf-footer .sf-footer-column.not-image{
     padding-top: 20%;
 }
+
+/* text color */
+.text-selected{
+    color:yellowgreen !important; 
+}
+
+/* header */
+.mobile_header_list{
+    background-color: white;
+    opacity: 0.5;
+}
+.mobile_header_list_selected{
+    background-color: white;
+    opacity: 1.0;
+
+}
