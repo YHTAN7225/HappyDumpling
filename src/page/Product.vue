@@ -1,47 +1,29 @@
 <template>
     <div>
         <VueperSlides>
-            <VueperSlide v-for="(slide, index) in slideArray" :key="index" :title="slide.title" :content="slide.content" />
+            <VueperSlide class="banner-image" v-for="(slide, index) in slideArray" :key="index" :image="slide.image" />
         </VueperSlides>
 
-    
-        <!-- <VueFlashcard  
-            front="hello this is a flashcard" 
-            back="with animation">
-        </VueFlashcard > -->
+        <!-- Category Bar -->
+        <div class="productCategoryBar">
+            <div :class="'productCategoryBarItem ' + (selectedCategory == category.name ? 'active fontSizeLarger shadowOrange' : '')"
+            v-for="(category, index) in productCategoryTitle" :key="index"
+            @click="selectCategory(category)"
+            @mouseenter="addClass"
+            @mouseleave="removeClass">
+                {{ category.displayName }}
+            </div>
+        </div>
 
-        <div class="d-flex align-items-center justify-content-around m-3">
-            <div class="card col-3" style="width: 18rem;">
-                <div class="card-body">
-                    <VueFlashcard  
-                        front="hello this is a flashcard" 
-                        back="with animation">
-                    </VueFlashcard >
-                </div>
-            </div>
-            <div class="card col-3" style="width: 18rem;">
-                <div class="card-body">
-                    <VueFlashcard  
-                        front="hello this is a flashcard" 
-                        back="with animation">
-                    </VueFlashcard >
-                </div>
-            </div>
-            <div class="card col-3" style="width: 18rem;">
-                <div class="card-body">
-                    <VueFlashcard  
-                        front="hello this is a flashcard" 
-                        back="with animation">
-                    </VueFlashcard >
-                </div>
-            </div>
-            <div class="card col-3" style="width: 18rem;">
-                <div class="card-body">
-                    <VueFlashcard  
-                        front="hello this is a flashcard" 
-                        back="with animation">
-                    </VueFlashcard >
-                </div>
+        <!-- Title -->
+        <div class="fontSizeXXL productTitle">{{ selectedCategory.displayName }}</div>
+
+        <!-- Product catalogue -->
+        <div class="allProductsContainer">
+            <div>
+                <img src="" alt="">
+                <div class="fontSizeXL">title</div>
+                <div class="fontSizeLarge">price</div>
             </div>
         </div>
 
@@ -53,27 +35,59 @@
         name : "Product",
         data(){
             return{
+                selectedCategory: "",
                 slideArray : [
                     {
                         title : "Slide 1",
-                        content : "Content 1"
+                        content : "Content 1",
+                        image : require('@/assets/images/HappyDumplingLogoShort.png')
                     },
                     {
                         title : "Slide 2",
-                        content : "Content 2"
+                        content : "Content 2",
+                        image : require('@/assets/images/HappyDumplingLogoLong.png')
                     },
                     {
                         title : "Slide 3",
-                        content : "Content 3"
+                        content : "Content 3",
+                        image : require('@/assets/images/HappyDumplingLogoLong.png')
                     },
                     {
                         title : "Slide 4",
-                        content : "Content 4"
+                        content : "Content 4",
+                        image : require('@/assets/images/HappyDumplingLogoLong.png')
                     },
                     {
                         title : "Slide 5",
-                        content : "Content 5"
+                        content : "Content 5",
+                        image : require('@/assets/images/HappyDumplingLogoLong.png')
                     }
+                ],
+                productCategoryTitle: [
+                    {
+                        displayName: "All Porducts",
+                        name: "allProduct",
+                    },
+                    {
+                        displayName: "Dumplings",
+                        name: "dumplings",
+                    },
+                    {
+                        displayName: "Holiday Special",
+                        name: "holidaySpecial",
+                    },
+                    {
+                        displayName: "Condiments",
+                        name: "condiments",
+                    },
+                    {
+                        displayName: "Herbal Drinks Series",
+                        name: "herbalDrinksSeries",
+                    },
+                    {
+                        displayName: "Quick-Meal Series",
+                        name: "quickMealsSeries",
+                    },
                 ]
             };
         },
@@ -81,10 +95,20 @@
 
         },
         methods : {
-
+            selectCategory : function(category){
+                this.selectedCategory = category.name
+                console.log(category.displayName);
+            },
+            addClass: function (e) {
+                e.target.classList.add("hovered");
+            },
+            removeClass: function (e) {
+                e.target.classList.remove("hovered");
+            },
         },
         mounted(){
             window.scrollTo(0, 0);
+            this.selectedCategory = this.productCategoryTitle[0];
         }
     }
     

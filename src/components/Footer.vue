@@ -10,6 +10,7 @@
             alt="Happy_Dumpling_Logo"
             :width="300"
             :height="300"
+            multiple
         />
     </SfFooterColumn>
     <SfFooterColumn :class="showLogo ? 'not-image' : ''" v-for="(column, columnIndex) in FooterContent" :key="columnIndex" :title="column.FooterColumnTitle">
