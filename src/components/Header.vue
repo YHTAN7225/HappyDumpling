@@ -138,7 +138,14 @@ import {SfMenuItem} from "@storefront-ui/vue";
             this.handleResize();
         },
         mounted(){
+            var self = this;
             this.selectedNav = this.NavBarComponent[0].routerName;
+            var NavBarSelect = setInterval(function(){
+                if(self.$router.currentRoute.name != null){
+                    self.selectedNav = self.$router.currentRoute.name;  
+                    clearInterval(NavBarSelect);
+                }
+            }, 100);
         },
         destroyed() {
             window.removeEventListener('resize', this.handleResize);

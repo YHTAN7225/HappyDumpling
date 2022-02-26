@@ -5,14 +5,29 @@
         </VueperSlides>
 
         <!-- Category Bar -->
-        <div class="productCategoryBar">
-            <div :class="'productCategoryBarItem ' + (selectedCategory == category.name ? 'active fontSizeLarger shadowOrange' : '')"
+        <div class="productCategoryBar" v-if="!$global.state.setting.isMobileView">
+            <div :class="'productCategoryBarItem ' + (selectedCategory.name == category.name ? 'active fontSizeLarger shadowOrange' : '')"
             v-for="(category, index) in productCategoryTitle" :key="index"
             @click="selectCategory(category)"
             @mouseenter="addClass"
             @mouseleave="removeClass">
                 {{ category.displayName }}
             </div>
+        </div>
+
+        <div class="productCategoryBarMobile" v-else>
+
+            <div class="fontSizeLarger showCategoryMobile" @click="showMobileCategoryBar = !showMobileCategoryBar">Category</div>
+            <div v-if="showMobileCategoryBar">
+                <div :class="'productCategoryBarItemMobile ' + (selectedCategory.name == category.name ? 'active fontSizeLarger shadowOrange' : '')"
+                v-for="(category, index) in productCategoryTitle" :key="index"
+                @click="selectCategory(category); showMobileCategoryBar = !showMobileCategoryBar;"
+                @mouseenter="addClass"
+                @mouseleave="removeClass">
+                    {{ category.displayName }}
+                </div>
+            </div>
+
         </div>
 
         <!-- Title -->
@@ -36,6 +51,7 @@
         data(){
             return{
                 selectedCategory: "",
+                showMobileCategoryBar: false,
                 slideArray : [
                     {
                         title : "Slide 1",
@@ -88,6 +104,56 @@
                         displayName: "Quick-Meal Series",
                         name: "quickMealsSeries",
                     },
+                    {
+                        displayName: "Herbal Drinks Series",
+                        name: "herbalDrinksSeries",
+                    },
+                    {
+                        displayName: "Quick-Meal Series",
+                        name: "quickMealsSeries",
+                    },{
+                        displayName: "Herbal Drinks Series",
+                        name: "herbalDrinksSeries",
+                    },
+                    {
+                        displayName: "Quick-Meal Series",
+                        name: "quickMealsSeries",
+                    },{
+                        displayName: "Herbal Drinks Series",
+                        name: "herbalDrinksSeries",
+                    },
+                    {
+                        displayName: "Quick-Meal Series",
+                        name: "quickMealsSeries",
+                    },{
+                        displayName: "Herbal Drinks Series",
+                        name: "herbalDrinksSeries",
+                    },
+                    {
+                        displayName: "Quick-Meal Series",
+                        name: "quickMealsSeries",
+                    },{
+                        displayName: "Herbal Drinks Series",
+                        name: "herbalDrinksSeries",
+                    },
+                    {
+                        displayName: "Quick-Meal Series",
+                        name: "quickMealsSeries",
+                    },{
+                        displayName: "Herbal Drinks Series",
+                        name: "herbalDrinksSeries",
+                    },
+                    {
+                        displayName: "Quick-Meal Series",
+                        name: "quickMealsSeries",
+                    },{
+                        displayName: "Herbal Drinks Series",
+                        name: "herbalDrinksSeries",
+                    },
+                    {
+                        displayName: "Quick-Meal Series",
+                        name: "quickMealsSeries",
+                    },
                 ]
             };
         },
@@ -96,7 +162,7 @@
         },
         methods : {
             selectCategory : function(category){
-                this.selectedCategory = category.name
+                this.selectedCategory = category
                 console.log(category.displayName);
             },
             addClass: function (e) {
@@ -109,6 +175,7 @@
         mounted(){
             window.scrollTo(0, 0);
             this.selectedCategory = this.productCategoryTitle[0];
+            console.log("here", this.$global.state.setting.isMobileView);
         }
     }
     

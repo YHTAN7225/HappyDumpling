@@ -40,6 +40,7 @@ const setting = {
     state : {
         showLoading : false,
         language : "eng",
+        isMobileView : false,
     }, 
     mutations : {
         setShowLoading(state, data){
@@ -48,6 +49,9 @@ const setting = {
         setLanguage(state, data){
             state.language = data;
         },
+        setIsMobileView(state, data){
+            state.isMobileView = data;
+        },
     },
     actions : {
         setShowLoading({commit}, data) {
@@ -55,6 +59,9 @@ const setting = {
         },
         setLanguage({commit}, data) {
             commit("setLanguage", data);
+        },
+        setIsMobileView({commit}, data) {
+            commit("setIsMobileView", data);
         },
     }
 };

@@ -16,6 +16,16 @@
 .shadowOrange{ text-shadow: .1rem .1rem 3rem #f39412;}
 .shadowOrange{ text-shadow: .1rem .1rem 3rem #f39412;}
 
+/* disable text highlight */
+div{ 
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
 
 /* footer */
 .sf-footer{
@@ -61,35 +71,18 @@ body{
 
 
 /* Product */
-.productTitle{
-    margin: 1rem 10rem;
-}
-.productCategoryBar{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 1rem 7rem 1rem; 
-}
-.productCategoryBarItem{
-    padding: 1rem;
-    border-right: .15rem solid;
-    transition: .2s;
-}
-.productCategoryBarItem.active{
-    font-weight: bold;
-}
-.productCategoryBarItem.hovered{
-    background-color: rgba(0, 0, 0, 0.30);
-}
-div.productCategoryBarItem:last-child{
-    padding: 1rem;
-    border-width: 0;
-}
-.allProductsContainer{
-    margin: 0 10rem;
-    display: flex;
-    justify-content: space-around;
-}
-.allProductsContainer .productContainer{
+.productTitle{margin: 1rem 2rem;}
 
-}
+.productCategoryBar{display: flex; flex-wrap: wrap; justify-content: center; padding: 1rem; }
+.productCategoryBarItem{padding: 1rem; transition: .2s;}
+.productCategoryBarItem.active{font-weight: bold;}
+.productCategoryBarItem.hovered{background-color: rgba(0, 0, 0, 0.30);}
+
+.showCategoryMobile{margin: .2rem; }
+.productCategoryBarMobile{display: flex; flex-direction: column; margin-left: .2rem;}
+.productCategoryBarItemMobile{padding: .2rem .2rem .2rem 2rem; transition: .2s;}
+.productCategoryBarItemMobile.active{font-weight: bold;}
+.productCategoryBarItemMobile.hovered{background-color: rgba(0, 0, 0, 0.30);}
+
+.allProductsContainer{margin: 0 2rem; display: flex; justify-content: space-around;}
+.allProductsContainer .productContainer{ }

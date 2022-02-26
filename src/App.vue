@@ -33,6 +33,7 @@ export default {
         },
       ],
       NavBarTitle : "Happy Dumpling",
+      isMobileView: false,
     };
   },
   components : {
@@ -43,7 +44,18 @@ export default {
   method:{
   },
   mounted(){
-    
+    var self = this;
+    window.addEventListener("resize", function(){
+      if(window.innerWidth < 800){
+        if(!self.$global.state.setting.isMobileView){
+          self.$global.commit("setIsMobileView", true);
+        }
+      }else{
+        if(self.$global.state.setting.isMobileView){
+          self.$global.commit("setIsMobileView", false);
+        }
+      }
+    }, true);
   }
 };
 </script>
