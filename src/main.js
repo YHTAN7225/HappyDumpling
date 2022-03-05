@@ -16,7 +16,6 @@ import router from "./router";
 // Vue.config.productionTip = false
 
 //importing local library
-//firebase
 import {firebase} from "../public/js/Firebase.js";
 import {shared} from "../public/js/Shared.js";
 Vue.mixin(firebase);
@@ -72,8 +71,8 @@ Vue.use(IconsPlugin);
 
 //components
 //flipping flash card, flip on click
-const vueFlashcard  = () => import(/* webpackChunkName : "vueFlashcard" */ "vue-flashcard");
-Vue.component("VueFlashcard", vueFlashcard);
+// const vueFlashcard  = () => import(/* webpackChunkName : "vueFlashcard" */ "vue-flashcard");
+// Vue.component("VueFlashcard", vueFlashcard);
 
 //slide show, for banner
 import { VueperSlides, VueperSlide } from 'vueperslides';

@@ -16,6 +16,10 @@
 .shadowOrange{ text-shadow: .1rem .1rem 3rem #f39412;}
 .shadowOrange{ text-shadow: .1rem .1rem 3rem #f39412;}
 
+/* alignment */
+.float-right{float: right !important;}
+.float-left{float: left !important;}
+
 /* disable text highlight */
 div{ 
     -webkit-touch-callout: none; /* iOS Safari */
@@ -28,21 +32,15 @@ div{
 
 
 /* footer */
-.sf-footer{
-    padding: 0% 10% 0% 10% !important;
-    /* position: absolute; */
-    width: 100%;
-    bottom: 0;
-}
-
-.sf-footer .sf-footer-column.not-image{
-    padding-top: 20%;
-}
+.sf-footer{ padding: 0% 10% 0% 10% !important; width: 100%; bottom: 0;}
+.sf-footer .sf-footer-column.not-image{ padding-top: 20%;}
 
 /* text color */
 .text-selected{
     color:yellowgreen !important; 
 }
+
+/*********************************************************************************************************************************************************************************************************/
 
 /* header */
 .mobile_header_list{
@@ -73,10 +71,13 @@ body{
 /* Product */
 .productTitle{margin: 1rem 2rem;}
 
-.productCategoryBar{display: flex; flex-wrap: wrap; justify-content: center; padding: 1rem; }
+/* .productCategoryBar{display: flex; flex-wrap: wrap; justify-content: center; padding: 1rem; } */
+.productCategoryBar{padding: 1rem;}
+
 .productCategoryBarItem{padding: 1rem; transition: .2s;}
 .productCategoryBarItem.active{font-weight: bold;}
 .productCategoryBarItem.hovered{background-color: rgba(0, 0, 0, 0.30);}
+.productCategoryBarItem .text{}
 
 .showCategoryMobile{margin: .2rem; }
 .productCategoryBarMobile{display: flex; flex-direction: column; margin-left: .2rem;}
@@ -84,5 +85,10 @@ body{
 .productCategoryBarItemMobile.active{font-weight: bold;}
 .productCategoryBarItemMobile.hovered{background-color: rgba(0, 0, 0, 0.30);}
 
-.allProductsContainer{margin: 0 2rem; display: flex; justify-content: space-around;}
-.allProductsContainer .productContainer{ }
+.allProductsContainer{margin: 0 2rem; display: flex; justify-content: center; flex-wrap: wrap;}
+.allProductsContainerMobile{margin: 0 .2rem; display: flex; justify-content: space-around; flex-wrap: wrap; flex-direction: row;}
+.allProductsContainer .productCard{ width: 20%; margin: 3rem;}
+.allProductsContainerMobile .productCardMobile{ width: 40%; margin: 1rem .4rem}
+
+.productViewButton {position: absolute; bottom: .5rem; right: .5rem; width: 40%;} 
+.productTextBox {margin-bottom: 2.5rem;}

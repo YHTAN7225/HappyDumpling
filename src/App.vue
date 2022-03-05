@@ -44,6 +44,8 @@ export default {
   method:{
   },
   mounted(){
+    this.$global.commit("setIsMobileView", window.innerWidth < 800 ? true : false);
+    
     var self = this;
     window.addEventListener("resize", function(){
       if(window.innerWidth < 800){
@@ -56,6 +58,6 @@ export default {
         }
       }
     }, true);
-  }
+  },
 };
 </script>
