@@ -21,7 +21,7 @@
         </SfList>
     </SfFooterColumn>
 
-  </SfFooter>
+</SfFooter>
 </template>
 
 <script>

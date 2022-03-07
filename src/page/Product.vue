@@ -70,7 +70,7 @@
             >
                 <b-card
                     v-for="(product, index) in productList" :key="index"
-                    :title="product.data.productName"
+                    :title="'[Special Combo] Chili Oil & Premium Mala Sauce'"
                     :img-src="product.data.imageUrl"
                     img-alt="Image"
                     img-top
@@ -106,19 +106,20 @@
                 </b-card> -->
                 <b-card
                     v-for="(product, index) in productList" :key="index"
-                    :title="product.data.productName"
+                    :title="'[Special Combo] Chili Oil & Premium Mala Sauce'"
                     :img-src="product.data.imageUrl"
                     img-alt="Image"
                     img-top
                     tag="article"
                     class="productCardMobile shadow-lg"
-                    body-class="productTextBox"
+                    body-class="productTextBoxMobile"
+                    title-tag= "h6"
                 >
                     <!-- <b-card-text class="productTextBox">
                     {{ "jasdfasdfas dfasdfasdfasdf asdfasdfa sdfasdfa sd fasdfasdfasdfasd fasd fasdf asdfasdfas dfasdf asdfa sdfasdfasdf asdfasdf asdfasdf asdf" }}
                     </b-card-text> -->
-
-                    <b-button variant="primary" class="productViewButton" @click="viewProduct(product.productId)">View</b-button>
+                    <div class="productInfoIcon"> Sales </div>
+                    <b-button variant="primary" class="productViewButtonMobile" @click="viewProduct(product.productId)">View</b-button>
                 </b-card>
 
 

@@ -1,5 +1,13 @@
 export const shared = {
     methods : {
+      log : function(text="", input){
+        if(text){
+          console.log(text, input);
+        }else{
+          console.log(input);
+        }
+        return true;
+      },
         setLanguage(lang){
           this.$global.commit("setLanguage", lang)
           this.$i18n.locale = lang;

@@ -43,15 +43,9 @@ div{
 /*********************************************************************************************************************************************************************************************************/
 
 /* header */
-.mobile_header_list{
-    background-color: white;
-    opacity: 0.5;
-}
-.mobile_header_list_selected{
-    background-color: white;
-    opacity: 1.0;
-
-}
+.headerBrandIcon { max-height: 4rem; margin: .5rem;}
+.headerBrandIconMobile { max-height: 2.5rem;}
+.activeNavItem {font-weight: 700; color: white !important;}
 
 /* body */
 body{
@@ -87,8 +81,14 @@ body{
 
 .allProductsContainer{margin: 0 2rem; display: flex; justify-content: center; flex-wrap: wrap;}
 .allProductsContainerMobile{margin: 0 .2rem; display: flex; justify-content: space-around; flex-wrap: wrap; flex-direction: row;}
-.allProductsContainer .productCard{ width: 20%; margin: 3rem;}
+.allProductsContainer .productCard{ width: 20%; min-width: 20rem; margin: 1rem;}
 .allProductsContainerMobile .productCardMobile{ width: 40%; margin: 1rem .4rem}
 
 .productViewButton {position: absolute; bottom: .5rem; right: .5rem; width: 40%;} 
+.productViewButtonMobile {width: 100%;} 
 .productTextBox {margin-bottom: 2.5rem;}
+.productTextBoxMobile {margin-bottom: .5rem;}
+
+.productInfoIcon { position: absolute; top: -1rem; right: -1rem; background-color: grey; border-radius: 50%; width: 4rem; height: 4rem; display: flex; justify-content: center; flex-direction: column; text-align: center;}
+.productInfoIcon.salesIcon{ background-color: azure !important;}
+.productInfoIcon.newIcon{ background-color: rgb(255 177 177) !important;}
