@@ -7,14 +7,14 @@
         <!-- Category Bar -->
         <div class="productCategoryBar">
             <div v-if="!$global.state.setting.isMobileView">
-                <!-- <b-container>
+                <b-container>
                     <b-row>
                         <b-col 
                             :class="'productCategoryBarItem ' + (selectedCategory.name == category.name ? 'active fontSizeLarger shadowOrange' : '')" 
                             v-for="(category, index) in productCategoryTitle" :key="index"
                             @click="selectCategory(category)"
-                            @mouseenter="addClass"
-                            @mouseleave="removeClass"
+                            @mouseenter="hoverEnter($event, 'hovered')"
+                            @mouseleave="hoverExit($event, 'hovered')"
                         >
                             {{ category.displayName }}
                         </b-col>
@@ -22,9 +22,9 @@
                 </b-container>
                 <div class="fontSizeXXL productTitle">
                     {{ selectedCategory.displayName }}
-                </div> -->
-                <div>
-                    <b-nav  tabs align="center">
+                </div>
+                <!-- <div>
+                    <b-nav tabs align="center">
                         <b-nav-item 
                             :class="'productCategoryBarItem ' + (selectedCategory.name == category.name ? 'active fontSizeLarger shadowOrange' : '')" 
                             v-for="(category, index) in productCategoryTitle" :key="index"
@@ -36,7 +36,7 @@
                         </b-nav-item>
 
                     </b-nav>
-                </div>
+                </div> -->
             </div>
             <div v-else>
                 <div 
@@ -52,8 +52,8 @@
                             :class="'productCategoryBarItemMobile ' + (selectedCategory.name == category.name ? 'active fontSizeLarger shadowOrange' : '')" 
                             v-for="(category, index) in productCategoryTitle" :key="index"
                             @click="selectCategory(category)"
-                            @mouseenter="addClass"
-                            @mouseleave="removeClass"
+                            @mouseenter="hoverEnter($event, 'hovered')"
+                            @mouseleave="hoverExit($event, 'hovered')"
                         >
                             {{ category.displayName }}
                         </b-row>
@@ -89,21 +89,6 @@
                 class="allProductsContainerMobile"
                 v-else
             >
-                <!-- <b-card
-                    v-for="(product, index) in productList" :key="index"
-                    :title="product.data.productName"
-                    :img-src="product.data.imageUrl"
-                    img-alt="Image"
-                    img-left
-                    tag="article"
-                    class="productCardMobile shadow-lg "
-                >
-                    <b-card-text>
-                        {{ product.data.description }}
-                    </b-card-text>
-
-                    <b-button variant="primary" @click="viewProduct(product.productId)">Go somewhere</b-button>
-                </b-card> -->
                 <b-card
                     v-for="(product, index) in productList" :key="index"
                     :title="'[Special Combo] Chili Oil & Premium Mala Sauce'"
@@ -115,9 +100,6 @@
                     body-class="productTextBoxMobile"
                     title-tag= "h6"
                 >
-                    <!-- <b-card-text class="productTextBox">
-                    {{ "jasdfasdfas dfasdfasdfasdf asdfasdfa sdfasdfa sd fasdfasdfasdfasd fasd fasdf asdfasdfas dfasdf asdfa sdfasdfasdf asdfasdf asdfasdf asdf" }}
-                    </b-card-text> -->
                     <div class="productInfoIcon"> Sales </div>
                     <b-button variant="primary" class="productViewButtonMobile" @click="viewProduct(product.productId)">View</b-button>
                 </b-card>
@@ -201,12 +183,6 @@ import { SfComponentSelect } from "@storefront-ui/vue";
                 this.selectedCategory = category;
                 this.showMobileCategoryBar = false;
                 console.log(category.displayName);
-            },
-            addClass: function (e) {
-                e.target.classList.add("hovered");
-            },
-            removeClass: function (e) {
-                e.target.classList.remove("hovered");
             },
             viewProduct: function(){
                 console.log("viewProduct");

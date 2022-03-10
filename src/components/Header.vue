@@ -58,8 +58,8 @@
 
                 <b-navbar-toggle target="nav-collapse">
                     <template #default="{ expanded }">
-                        <b-icon v-if="expanded" icon="chevron-bar-up"></b-icon>
-                        <b-icon v-else icon="chevron-bar-down"></b-icon>
+                        <b-icon v-if="expanded" icon="chevron-double-up"></b-icon>
+                        <b-icon v-else icon="chevron-double-down"></b-icon>
                     </template>
                 </b-navbar-toggle>
 
@@ -70,7 +70,7 @@
                             v-for="(nav, index) in NavBarComponent" :key="index"
                             @click="redirect(nav.routerName)"
                         >
-                            <div :class="($route.name == nav.routerName ? 'activeNavItem' : '')">{{nav.name}}</div>
+                            <div :class="'fontSizeLarger navItem ' + ($route.name == nav.routerName ? 'activeNavItem' : '')">{{nav.name}}</div>
                         </b-nav-item>
                     </b-navbar-nav>
                 </b-collapse>

@@ -37,6 +37,19 @@ export const shared = {
           }else{
             this.$global.commit("setShowLoading", false);
           }
+        },
+        hoverEnter : function(e, className){
+          e.target.classList.add(className);
+        },
+        hoverExit : function(e, className){
+          e.target.classList.remove(className);
+        },
+        goToLink : function(link, newTab=true){
+          const a = document.createElement("a");
+          a.href = link;
+          a.target = newTab ? "_blank" : "_self";
+          a.click();
+          a.remove();
         }
     }
 }

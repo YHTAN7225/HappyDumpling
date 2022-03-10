@@ -1,79 +1,78 @@
 <template>
-<SfFooter
-    :column="showLogo ? (FooterContent.length+1) : FooterContent.length"
-    :multiple="false"
-  >
-    <SfFooterColumn v-if="showLogo">
-        <SfImage
-            :src="require('@/assets/images/HappyDumplingLogoShort.png')"
-            :srcsets="[]"
-            alt="Happy_Dumpling_Logo"
-            :width="300"
-            :height="300"
-            multiple
-        />
-    </SfFooterColumn>
-    <SfFooterColumn :class="showLogo ? 'not-image' : ''" v-for="(column, columnIndex) in FooterContent" :key="columnIndex" :title="column.FooterColumnTitle">
-        <SfList>
-            <SfListItem v-for="(item, listIndex) in column.ListItem" :key="columnIndex + '-' + listIndex">
-                <SfMenuItem :label="item.lable" icon="heart" @click="$router.push({name : item.routerName})"/>
-            </SfListItem>
-        </SfList>
-    </SfFooterColumn>
-
-</SfFooter>
+    <div :class="!$global.state.setting.isMobileView ? 'footer' : 'footerMobile'">
+        <!-- pc view -->
+        <div v-if="!$global.state.setting.isMobileView">
+            <b-row>
+                <b-col class="footerContainer">
+                    <div class="fontSizeXL footerTitle"> Quick Link </div>
+                    <div class="footerQuickLinkContainer">
+                        <div 
+                            v-for="(item, index) in FooterContent" :key="index"
+                            @click="$router.push({name: item.routerName})"
+                            @mouseenter="hoverEnter($event, 'link')"
+                            @mouseleave="hoverExit($event, 'link')"
+                        >
+                            {{item.lable}}
+                        </div>
+                    </div>
+                </b-col>
+                <b-col class="footerContainer">
+                    <div class="fontSizeXL footerTitle"> Follow Us </div>
+                    <div class="footerIconContainer">
+                        <b-icon class="icon" icon="facebook" @click="goToLink('https://www.facebook.com/')"></b-icon>
+                        <b-icon class="icon" icon="instagram" @click="goToLink('https://www.facebook.com/')"></b-icon>
+                    </div>
+                </b-col>
+            </b-row>
+        </div>
+        <!-- mobile view -->
+        <div v-else>
+            <b-col>
+                <b-row class="footerContainerMobile">
+                    <div class="fontSizeXL footerTitle"> Quick Link </div>
+                    <div class="footerQuickLinkContainer">
+                        <div 
+                            v-for="(item, index) in FooterContent" :key="index"
+                            @click="$router.push({name: item.routerName})"                        
+                        >
+                            {{item.lable}}
+                        </div>
+                    </div>
+                </b-row>
+                <b-row class="footerContainerMobile">
+                    <div class="fontSizeXL footerTitle"> Follow Us </div>
+                    <div class="footerIconContainer">
+                        <b-icon class="icon" icon="facebook" @click="goToLink('https://www.facebook.com/')"></b-icon>
+                        <b-icon class="icon" icon="instagram" @click="goToLink('https://www.facebook.com/')"></b-icon>
+                    </div>
+                </b-row>
+            </b-col>
+        </div>
+    </div>
 </template>
 
 <script>
-import { SfFooter } from "@storefront-ui/vue";
-import { SfList } from "@storefront-ui/vue";
-import { SfMenuItem } from "@storefront-ui/vue";
-import { SfArrow } from "@storefront-ui/vue";
-import { SfImage } from "@storefront-ui/vue";
     export default {
         data() {
             return {
                 FooterContent : [
                     {
-                      FooterColumnTitle : "About Us",
-                      ListItem : [
-                          {
-                              lable : "Contact Us",
-                              routerName : "contact-us",
-                          },
-                          {
-                              lable : "Delivery Info",
-                              routerName : "delivery-info",
-                          },
-                          {
-                              lable : "Our Story",
-                              routerName : "our-story",
-                          },
-                          {
-                              lable : "Terms & Conditions",
-                              routerName : "terms-and-conditions",
-                          },
-                      ],  
+                        lable : "Contact Us",
+                        routerName : "contact-us",
                     },
                     {
-                        FooterColumnTitle : "Quick Link",
-                        ListItem : [
-                            {
-                                lable : "Home",
-                                routerName : "home",
-                            },
-                            {
-                                lable : "Product",
-                                routerName : "product",
-                            },
-                            {
-                                lable : "Login",
-                                routerName : "login",
-                            },
-                        ],
+                        lable : "Delivery Info",
+                        routerName : "delivery-info",
+                    },
+                    {
+                        lable : "Our Story",
+                        routerName : "our-story",
+                    },
+                    {
+                        lable : "Terms & Conditions",
+                        routerName : "terms-and-conditions",
                     },
                 ],
-                showLogo : false,
             }
         },
         methods : {
@@ -82,12 +81,5 @@ import { SfImage } from "@storefront-ui/vue";
                 console.log(this.$enums);
             },
         },
-        components : {
-            SfFooter,
-            SfList,
-            SfMenuItem,
-            SfArrow,
-            SfImage,
-        }
     }
 </script>
