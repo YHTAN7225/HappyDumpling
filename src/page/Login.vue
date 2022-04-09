@@ -1,37 +1,27 @@
 <template>
-    <div class="">
-        <div class="container py-5">
-            <div class="row d-flex">
-                <div class="col-md-8 col-lg-7 col-xl-6">
-                    <img src="@/assets/images/HappyDumplingLogoShort.png" class="img-fluid">
-                </div>
-                <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-                    <form>
-                        <!-- Email input -->
-                        <div class="form-outline mb-4">
-                            <label class="form-label" for="form1Example13">Email address</label>
-                            <input type="email" class="form-control form-control-lg" v-model="email"/>
-                        </div>
-
-                        <!-- Password input -->
-                        <div class="form-outline mb-4">
-                            <label class="form-label" for="form1Example23">Password</label>
-                            <input type="password" class="form-control form-control-lg" v-model="password"/>
-                        </div>
-                    </form>
-                <div v-if="errorMessage">{{errorMessage}}</div>
-
-                <!-- Submit button -->
-                <div class="divider d-flex align-items-center justify-content-around my-4">
-                    <button class="btn btn-primary btn-lg btn-block mx-3" @click="login">Sign in</button>
-                    <button class="btn btn-primary btn-lg btn-block mx-3" @click="goToRegister()">Register</button>
-                </div>
-                </div>
-            </div>
-        </div>
-
+    <div>
         <div class="loginContainer">
-            asdasdasdasd
+            <div class="title">Sign in</div>
+            <div class="formContainer">
+                <div class="input">
+                    <div class="inputLable">email</div>
+                    <input type="text" class="inputText" v-model="email" placeholder="Email"/>
+                </div>
+                <div class="input">
+                    <div class="inputLable">password</div>
+                    <div class="passwordContainer">
+                        <input v-if="viewPassword" type="text" class="inputText" v-model="password" placeholder="Password">
+                        <input v-else type="password" class="inputText" v-model="password" placeholder="Password">
+                        <div class="viewPasswordButton" @click="toggleViewPassowrd()">View</div>
+                    </div>
+                </div>
+                <div class="loginButton" @click="login()">Login</div>
+            </div>
+
+            <div class="newUserContainer">
+                <div class="newUserLable"> First time?</div>
+                <div class="registerButton" @click="goToRegister()">Register now</div>
+            </div>
         </div>
     </div>
 </template>
@@ -44,6 +34,7 @@
                 email: "",
                 password: "",
                 errorMessage: "",
+                viewPassword: false,
             };
         },
         component:{
@@ -61,6 +52,9 @@
                 }).catch(err => {
                     this.errorMessage = this.$error.getAuthErrorMessage(err.code);
                 })
+            },
+            toggleViewPassowrd:function(){
+                this.viewPassword = !this.viewPassword;
             }
         },
         mounted(){

@@ -47,6 +47,7 @@ div{
 .footer .footerContainer .footerQuickLinkContainer { display: flex; justify-content: center; flex-direction: column;}
 .footer .footerContainer .footerIconContainer { display: flex; justify-content: center;}
 .footer .footerContainer .footerIconContainer .icon {margin: .5rem; padding: .5rem; height: 2.5rem; width: 2.5rem; min-width: fit-content;}
+.footer .footerContainer .footerIconContainer .icon.shopee {background-image: url("../icons/icon_shopee.png");}
 
 .footerMobile {background-color: black; color: rgb(206, 206, 206); padding: .5rem .5rem 5rem .5rem;}
 .footerMobile .footerContainerMobile {text-align: center;}
@@ -54,6 +55,7 @@ div{
 .footerMobile .footerContainerMobile .footerQuickLinkContainer { display: flex; justify-content: center; flex-direction: column;}
 .footerMobile .footerContainerMobile .footerIconContainer { display: flex; justify-content: center;}
 .footerMobile .footerContainerMobile .footerIconContainer .icon {margin: .5rem; padding: .5rem; height: 2.5rem; width: 2.5rem; min-width: fit-content;}
+.footerMobile .footerContainerMobile .footerIconContainer .icon.shopee {background-image: url("../icons/icon_shopee.png");}
 
 /*********************************************************************************************************************************************************************************************************/
 /* Header */
@@ -62,10 +64,19 @@ div{
 .navItem {padding-left: 1rem;}
 .activeNavItem {font-weight: 700; color: white !important;}
 
+/*********************************************************************************************************************************************************************************************************/
 /* body */
 body{background-image: url("../images/background.jpg");background-size: cover;}
-
 .banner-image{max-height: 100%;}
+
+/*********************************************************************************************************************************************************************************************************/
+/* Login */
+.loginContainer {width: 100%;}
+.loginContainer .title{ font-size: 3rem; width: 50%; margin: auto;}
+.loginContainer .formContainer{width: 50%; margin: auto; display: flex; flex-direction: column; align-items: center;}
+.loginContainer .formContainer .passwordContainer{display: flex; flex-direction: row; align-items: center;}
+.loginContainer .formContainer .passwordContainer .viewPasswordButton{width: 3rem; border: black solid .1rem; padding: .1rem;}
+.loginContainer .newUserContainer{width: 100%; display: flex; flex-direction: column; align-items: center;}
 
 /*********************************************************************************************************************************************************************************************************/
 /* Product */
