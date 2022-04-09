@@ -22,16 +22,23 @@ const test = {
 
 const user = {
     state : {
-        userToken : "",
+        userToken: "",
+        userEmail: ""
     }, 
     mutations : {
-        setTest(state, data){
+        setUserToken(state, data){
             state.userToken = data;
+        },
+        setUserEmail(state, data){
+            state.userEmail = data;
         },
     },
     actions : {
         setUserToken({commit}, data) {
             commit("setUserToken", data);
+        },
+        setUserEmail({commit}, data) {
+            commit("setUserEmail", data);
         },
     }
 };

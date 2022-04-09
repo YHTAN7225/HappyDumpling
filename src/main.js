@@ -26,6 +26,8 @@ import global from "../public/js/Store"
 Vue.prototype.$global = global;
 import {constant} from "../public/js/Enum.js"
 Vue.prototype.$constant = constant;
+import {error} from "../public/js/Error.js"
+Vue.prototype.$error = error;
 
 //VueI18n for multi-language
 import VueI18n from "vue-i18n";

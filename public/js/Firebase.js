@@ -3,6 +3,9 @@ import {initializeApp} from 'firebase/app';
 import {getFirestore, collection, getDocs} from "firebase/firestore/lite";
 import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut} from "firebase/auth";
 
+//Error
+import{error} from "./Error.js"
+
 const firebaseConfig = {
     apiKey : process.env.VUE_APP_API_KEY,
     authDomain : process.env.VUE_APP_AUTH_DOMAIN,
@@ -15,12 +18,20 @@ const firebaseConfig = {
 const firestoreApp = initializeApp(firebaseConfig);
 const firestoreDatabase = getFirestore(firestoreApp);
 const auth = getAuth();
+const getError = error;
 
 export const firebase = {
     data(){
         return{}
     },
     methods:{
+        firebaseReturn(success, data, errorCode){
+            return {
+                success: success,
+                data: data,
+                errorCode: errorCode,
+            };
+        },
         getCollection : function(collectionName){
             return collection(firestoreDatabase, collectionName);
         },
@@ -52,18 +63,8 @@ export const firebase = {
                 // ..
             });
         },
-        login : function(email, password){
-            signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                // Signed in 
-                const user = userCredential.user;
-                console.log(user);
-                // ...
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-            });
+        firebaseLogin : function(email, password){
+            return signInWithEmailAndPassword(auth, email, password);
         }
     }
 }

@@ -1,8 +1,15 @@
-/* general */
-.routerView{
-    height: auto;
-    min-height: 100vh;
+/*********************************************************************************************************************************************************************************************************/
+/* root */
+:root{
+    /* color */
+    --red: rgb(255, 60, 60);
+    --white: rgb(255, 255, 255, 1);
+    --black: rgba(0, 0, 0, 1);
 }
+
+/*********************************************************************************************************************************************************************************************************/
+/* general */
+.routerView{height: auto;min-height: 100vh;}
 
 .link {color: #5e5eff;}
 
@@ -32,10 +39,8 @@ div{
     user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 
-
+/*********************************************************************************************************************************************************************************************************/
 /* footer */
-/* .sf-footer{ padding: 0% 10% 0% 10% !important; width: 100%; bottom: 0;}
-.sf-footer .sf-footer-column.not-image{ padding-top: 20%;} */
 .footer {background-color: black; color: rgb(206, 206, 206); padding: 2rem 1rem;}
 .footer .footerContainer { text-align: center; margin: 0 2rem;}
 .footer .footerContainer .footerTitle { border-bottom: solid 1px white; padding-bottom: .5rem; margin-bottom: .5rem;}
@@ -50,34 +55,19 @@ div{
 .footerMobile .footerContainerMobile .footerIconContainer { display: flex; justify-content: center;}
 .footerMobile .footerContainerMobile .footerIconContainer .icon {margin: .5rem; padding: .5rem; height: 2.5rem; width: 2.5rem; min-width: fit-content;}
 
-/* text color */
-.text-selected{
-    color:yellowgreen !important; 
-}
-
 /*********************************************************************************************************************************************************************************************************/
-
-/* header */
+/* Header */
 .headerBrandIcon { max-height: 3rem; margin-left: .5rem;}
 .headerBrandIconMobile { max-height: 2.5rem;}
 .navItem {padding-left: 1rem;}
 .activeNavItem {font-weight: 700; color: white !important;}
 
 /* body */
-body{
-    background-image: url("../images/background.jpg");
-    /* background-repeat: no-repeat; */
-    background-size: cover;
-}
+body{background-image: url("../images/background.jpg");background-size: cover;}
 
-.banner-image{
-    /* max-width: 100%; */
-    max-height: 100%;
-    /* width:auto;
-    height:auto; */
-}
+.banner-image{max-height: 100%;}
 
-
+/*********************************************************************************************************************************************************************************************************/
 /* Product */
 .productTitle{margin: 1rem 2rem;}
 

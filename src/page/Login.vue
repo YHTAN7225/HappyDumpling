@@ -9,46 +9,29 @@
                     <form>
                         <!-- Email input -->
                         <div class="form-outline mb-4">
-                            <input type="email" class="form-control form-control-lg" />
                             <label class="form-label" for="form1Example13">Email address</label>
+                            <input type="email" class="form-control form-control-lg" v-model="email"/>
                         </div>
 
                         <!-- Password input -->
                         <div class="form-outline mb-4">
-                            <input type="password" class="form-control form-control-lg" />
                             <label class="form-label" for="form1Example23">Password</label>
-                        </div>
-
-                        <div class="d-flex justify-content-around align-items-center mb-4">
-                            <!-- Checkbox -->
-                            <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked/>
-                            <label class="form-check-label" for="form1Example3"> Remember me </label>
-                            </div>
-                            <a href="#!">Forgot password?</a>
+                            <input type="password" class="form-control form-control-lg" v-model="password"/>
                         </div>
                     </form>
+                <div v-if="errorMessage">{{errorMessage}}</div>
 
                 <!-- Submit button -->
                 <div class="divider d-flex align-items-center justify-content-around my-4">
-                    <button class="btn btn-primary btn-lg btn-block mx-3">Sign in</button>
+                    <button class="btn btn-primary btn-lg btn-block mx-3" @click="login">Sign in</button>
                     <button class="btn btn-primary btn-lg btn-block mx-3" @click="goToRegister()">Register</button>
                 </div>
-                
-
-                <div class="divider d-flex align-items-center justify-content-around my-4">
-                    <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
-                </div>
-
-                <a class="btn btn-primary btn-lg btn-block mx-3" style="background-color : #3b5998" href="#!" role="button">
-                    <i class="fab fa-facebook-f me-2">Continue with Facebook</i>
-                </a>
-                <a class="btn btn-primary btn-lg btn-block" style="background-color : #55acee" href="#!" role="button">
-                    <i class="fab fa-twitter me-2">Continue with Twitter</i>
-                </a>
-
                 </div>
             </div>
+        </div>
+
+        <div class="loginContainer">
+            asdasdasdasd
         </div>
     </div>
 </template>
@@ -57,7 +40,11 @@
     export default {
         name : "Login",
         data(){
-            return{};
+            return{
+                email: "",
+                password: "",
+                errorMessage: "",
+            };
         },
         component:{
 
@@ -65,6 +52,15 @@
         methods : {
             goToRegister : function(){
                 this.$router.push({name : "register"});
+            },
+            login: function(){
+                this.firebaseLogin(this.email, this.password).then(res => {
+                    this.$global.commit("setUserToken", res.user.accessToken);
+                    this.$global.commit("setUserEmail", res.user.email);
+                    this.$router.push({name: "home"});
+                }).catch(err => {
+                    this.errorMessage = this.$error.getAuthErrorMessage(err.code);
+                })
             }
         },
         mounted(){
