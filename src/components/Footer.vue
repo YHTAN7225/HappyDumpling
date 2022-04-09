@@ -21,6 +21,7 @@
                     <div class="footerIconContainer">
                         <b-icon class="icon" icon="facebook" @click="goToLink('https://www.facebook.com/')"></b-icon>
                         <b-icon class="icon" icon="instagram" @click="goToLink('https://www.facebook.com/')"></b-icon>
+                        <img class="icon" :src="require('@/assets/icons/icon_shopee.png')">
                     </div>
                 </b-col>
             </b-row>
@@ -44,6 +45,7 @@
                     <div class="footerIconContainer">
                         <b-icon class="icon" icon="facebook" @click="goToLink('https://www.facebook.com/')"></b-icon>
                         <b-icon class="icon" icon="instagram" @click="goToLink('https://www.facebook.com/')"></b-icon>
+                        <img class="icon" :src="require('@/assets/icons/icon_shopee.png')">
                     </div>
                 </b-row>
             </b-col>
