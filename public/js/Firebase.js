@@ -1,6 +1,12 @@
 //Firebase
 import {initializeApp} from 'firebase/app';
-import {getFirestore, collection, getDocs} from "firebase/firestore/lite";
+import { 
+    getFirestore,
+    doc,
+    collection, 
+    setDoc,
+    getDocs 
+} from "firebase/firestore"; 
 import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut} from "firebase/auth";
 
 //Error
@@ -45,16 +51,40 @@ export const firebase = {
                 return result;
             }else {return undefined;}
         },
-        createNewUser : async function(){ 
-            const email = "test2@test.com";
-            const password = "qwe123";
+        setDocument : async function(collectionName, data, id){
+            try{
+                setDoc(doc(firestoreDatabase, collectionName, id), data);
+                return true;
+            }catch(error){
+                console.log("error : ", error);
+                return false;
+            }
             
-            createUserWithEmailAndPassword(auth, email, password)
-                .then((userCredential) => {
+
+        },
+        createNewUser : async function(email, password, firstName, lastName){ 
+            return createUserWithEmailAndPassword(auth, email, password)
+                .then((res) => {
+                    console.log("res", res);
                 // Signed in 
-                const user = userCredential.user;
-                console.log("user", user);
-                console.log("userCredential", userCredential);
+                this.$global.commit("setUserToken", res.user.accessToken);
+                this.$global.commit("setUserEmail", res.user.email);
+                
+                var userDataObject = {
+                    email : email,
+                    firstName : firstName,
+                    lastName : lastName,
+                    address : [],
+                    credit : 0,
+                    currentCartItem : [],
+                    phoneNumber : "",
+                }
+                this.setDocument("user", userDataObject, res.user.uid).then(res => {
+                    if(res){
+                        this.$router.push({name: "home"});
+                    }
+                });
+
                 // ...
             }).catch((error) => {
                 const errorCode = error.code;
