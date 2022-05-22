@@ -27,10 +27,6 @@ export default {
           name : "Product",
           routerName : "product"
         },
-        {
-          name : "Login",
-          routerName : "login"
-        },
       ],
       NavBarTitle : "Happy Dumpling",
       isMobileView: false,
