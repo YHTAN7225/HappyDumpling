@@ -74,6 +74,12 @@ export default new Router({
             // beforeEnter : blockSelfRedirect
         },
         {
+            path : "/profile",
+            name : "profile",
+            component : () => import("./page/Profile"),
+            // beforeEnter : blockSelfRedirect
+        },
+        {
             path : "*",
             redirect : {name : "home"}
         }

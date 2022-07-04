@@ -9,7 +9,7 @@
 
 /*********************************************************************************************************************************************************************************************************/
 /* general */
-.routerView{height: auto;min-height: 100vh;}
+.routerView{height: auto; min-height: 100vh;}
 
 .link {color: #5e5eff;}
 
@@ -21,6 +21,9 @@
 .fontSizeSmall{font-size: small;}
 .fontSizeXS{font-size: x-small;}
 .fontSizeXXS{font-size: xx-small;}
+
+/* Title Text */
+.title {width: 100%; margin: 1rem 0 1rem 15%; font-size: 3rem;}
 
 .shadowOrange{ text-shadow: .1rem .1rem 3rem #f39412;}
 .shadowOrange{ text-shadow: .1rem .1rem 3rem #f39412;}
@@ -109,3 +112,24 @@ body{background-image: url("../images/background.jpg");background-size: cover;}
 .productInfoIcon { position: absolute; top: -1rem; right: -1rem; background-color: grey; border-radius: 50%; width: 4rem; height: 4rem; display: flex; justify-content: center; flex-direction: column; text-align: center;}
 .productInfoIcon.salesIcon{ background-color: azure !important;}
 .productInfoIcon.newIcon{ background-color: rgb(255 177 177) !important;}
+
+/*********************************************************************************************************************************************************************************************************/
+/* Profile */
+
+.address-container {display: flex; justify-content: flex-start; margin: 0 12.5vw;}
+.address-container .address-card {display: flex; flex-direction: column; justify-content: space-around; width: 20vw; height: 15vw; min-width: 150px; min-height: 200px; box-shadow: 0 0 .5rem rgba(0, 0, 0, 0.5); margin: 2.5vw; background-color: rgba(255, 255, 255, 0.5);}
+.address-container .address-card .address-card-content {margin: .3rem}
+.address-container .address-card .address-card-content .name {margin: .3rem}
+.address-container .address-card .address-card-content .phone-number {margin: .3rem}
+.address-container .address-card .address-card-content .address {margin: .3rem}
+.address-container .address-card .address-card-bottom {display: flex; justify-content: space-between; margin: .5rem; border-top: rgba(0, 0, 0, 0.3) 1px solid;}
+.address-container .address-card .address-card-bottom .address-card-button{}
+.address-container .address-card .address-card-bottom .address-card-button.left{}
+.address-container .address-card .address-card-bottom .address-card-button.right{}
+
+.order-container{display: flex; justify-content: flex-start; margin: 0 12.5vw;}
+.order-container .order-table{ width: 100%; border: grey 1px solid; text-align: center;}
+.order-container .order-table .order-table-row{height: 3rem; background-color: rgb(221, 221, 221);}
+.order-container .order-table .order-table-row:nth-child(2n){background-color: white;}
+.order-container .order-table .order-table-row.header{background-color: rgb(39, 39, 39); color: white;}
+.order-container .order-table .order-table-header .order-table-header-text{color: white;}
